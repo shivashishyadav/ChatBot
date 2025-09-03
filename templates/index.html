@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatBot-Shivashish Yadav</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat-card">
+        <!-- Header -->
+        <div class="chat-header">
+          <span>💬 My Chatbot</span>
+        </div>
+
+        <!--          
+          If chat_history = [("user", "Hello"), ("bot", "Hi there!")]
+        then the rendering html template is: 
+        <div class="chat-body" id="chatBody">
+            <div class="message user">
+              <p><b>User:</b> Hello</p>
+            </div>
+            <div class="message bot">
+              <p><b>Bot:</b> Hi there!</p>
+            </div>
+          </div>
+               -->
+        <!-- Messages -->
+        <div class="chat-body" id="chatBody">
+          {% for role, message in chat_history %}
+            <div class="message {{ role }}">
+              <p>{{ message }}</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Input -->
+        <form method="POST" class="chat-footer">
+          <input type="text" placeholder="Type a message..." name="message" required />
+          <button type="submit">Send</button>
+          <a href="/clear" class="clear-btn">🗑️Clear Chat</a>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <p>
+        &copy;Powered by Flask and Groq API - designed by <a href="https://github.com/shivashishyadav/" target="_blank"><i>Shivashish Yadav</i></a> in 2025
+      </p>
+    </footer>
+  </body>
+</html>

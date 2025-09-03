@@ -1,0 +1,10 @@
+# Ignore environment variables
+.env
+
+# Ignore Python cache and venv
+__pycache__/
+venv/
+
+# Ignore other system files
+*.pyc
+.DS_Store

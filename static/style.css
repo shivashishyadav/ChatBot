@@ -1,0 +1,137 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+/* Fullscreen center */
+.container {
+    background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Chat card */
+.chat-card {
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px;
+    height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+    background: #0078d7;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* Body */
+.chat-body {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+.message {
+    margin: 6px 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 90%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* User message */
+.message.user {
+    background: #0078d7;
+    color: white;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Bot message */
+.message.bot {
+    background: #f1f1f1;
+    color: #333;
+    margin-right: auto;
+}
+
+/* Footer */
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.chat-footer button {
+    margin-left: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #0078d7;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.chat-footer button:hover {
+    background: #005fa3;
+}
+
+.clear-btn {
+    background-color: red;
+    color: white;
+    margin-left: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+footer p {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #9cc5e3;
+    color: #666;
+}
+footer p a:hover{
+    color: rgb(83, 114, 148);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .chat-card {
+        height: 90vh;
+        max-width: 100%;
+    }
+}
