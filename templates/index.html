@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChatBot-Shivashish Yadav</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <!-- Highlight.js CSS theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+    <!-- Highlight.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="chat-card">
         <!-- Header -->
         <div class="chat-header">
-          <span>💬 My Chatbot</span>
+          <a href="https://www.linkedin.com/in/shivashish-yadav-196275310/"><span>-Shivashish-</span></a>
         </div>
 
-        <!--          
+        <!--                
           If chat_history = [("user", "Hello"), ("bot", "Hi there!")]
         then the rendering html template is: 
         <div class="chat-body" id="chatBody">
@@ -25,28 +30,37 @@
               <p><b>Bot:</b> Hi there!</p>
             </div>
           </div>
-               -->
+                     -->
         <!-- Messages -->
         <div class="chat-body" id="chatBody">
           {% for role, message in chat_history %}
             <div class="message {{ role }}">
-              <p>{{ message }}</p>
+              <div class="message {{ role }}">{{ message|safe }}</div>
             </div>
           {% endfor %}
         </div>
 
         <!-- Input -->
         <form method="POST" class="chat-footer">
-          <input type="text" placeholder="Type a message..." name="message" required />
-          <button type="submit">Send</button>
-          <a href="/clear" class="clear-btn">🗑️Clear Chat</a>
+          <input type="text" placeholder="Ask something(my BOT does not contain memories)..." name="message" required aria-label="Message input" />
+          <button type="submit" aria-label="Send message">Send</button>
+          <a href="/clear" class="clear-btn" aria-label="Clear chat">🗑️Clear Chat</a>
         </form>
       </div>
     </div>
+
     <footer>
       <p>
         &copy;Powered by Flask and Groq API - designed by <a href="https://github.com/shivashishyadav/" target="_blank"><i>Shivashish Yadav</i></a> in 2025
       </p>
     </footer>
+    <script>
+      const chatBody = document.getElementById('chatBody')
+      chatBody.scrollTop = chatBody.scrollHeight
+    </script>
+    <!-- Auto-detect languages -->
+    <script>
+      hljs.highlightAll()
+    </script>
   </body>
 </html>
